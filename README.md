@@ -1,6 +1,5 @@
-# Coding-dojo "AlpesCraft"
+> AlpesCraft Coding-dojo "Grenoble centre"
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+# Séance du 07/12/2022
 
-## Séances
-
+Sujet : [Cupcake](https://codingdojo.org/kata/cupcake/) sans la variante "décorateur"

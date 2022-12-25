@@ -1,0 +1,23 @@
+{
+  "name": "coding-dojo",
+  "version": "1.0.0",
+  "description": "> Coding-dojo \"VRTICE Tech Lunch\"",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:vrtice/vrtice-tech-lunch/coding-dojo.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
