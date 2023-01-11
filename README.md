@@ -5,3 +5,4 @@
 ## Séances
 
 * [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
+* [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
