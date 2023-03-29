@@ -33,16 +33,29 @@ function convert(input: number) {
     "eighty",
     "ninety",
   ];
-  // TODO to refactor
-  if (input === 100) {
-    return "one hundred";
+
+  if (input >= 1000) {
+    const underThousand = input % 1000;
+    const thousandsPart = "one thousand";
+    if (underThousand === 0) {
+      return thousandsPart;
+    }
+    if (underThousand < 100) {
+      return thousandsPart + " and " + convert(underThousand);
+    }
+    return thousandsPart + " " + convert(underThousand);
   }
-  if (input === 101) {
-    return "one hundred and one";
+
+  if (input >= 100) {
+    const hundreds = Math.floor(input / 100);
+    const tens = input % 100;
+    const hundredsPart = units[hundreds] + " hundred";
+    if (tens === 0) {
+      return hundredsPart;
+    }
+    return hundredsPart + " and " + convert(tens);
   }
-  if (input === 102) {
-    return "one hundred and two";
-  }
+
   if (input >= units.length) {
     const tenPart = multipleOfTen[Math.floor(input / 10)];
     const unitPart = input % 10;
@@ -128,8 +141,37 @@ describe("numbers", function () {
     { input: 100, expected: "one hundred" },
     { input: 101, expected: "one hundred and one" },
     { input: 102, expected: "one hundred and two" },
+    { input: 103, expected: "one hundred and three" },
+    { input: 113, expected: "one hundred and thirteen" },
+    { input: 153, expected: "one hundred and fifty-three" },
+    { input: 199, expected: "one hundred and ninety-nine" },
   ])(
     "should convert over 100 : $input to $expected",
+    function ({ input, expected }) {
+      expect(convert(input)).toEqual(expected);
+    }
+  );
+  it.each([
+    { input: 200, expected: "two hundred" },
+    { input: 201, expected: "two hundred and one" },
+    { input: 202, expected: "two hundred and two" },
+    { input: 999, expected: "nine hundred and ninety-nine" },
+  ])(
+    "should convert over 200 : $input to $expected",
+    function ({ input, expected }) {
+      expect(convert(input)).toEqual(expected);
+    }
+  );
+  it.each([
+    { input: 1000, expected: "one thousand" },
+    { input: 1001, expected: "one thousand and one" },
+    { input: 1099, expected: "one thousand and ninety-nine" },
+    { input: 1100, expected: "one thousand one hundred" },
+    { input: 1234, expected: "one thousand two hundred and thirty-four" },
+    //  TODO
+    // { input: 2000, expected: "two thousand" },
+  ])(
+    "should convert over 1000 : $input to $expected",
     function ({ input, expected }) {
       expect(convert(input)).toEqual(expected);
     }
