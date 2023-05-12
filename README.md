@@ -1,11 +1,23 @@
-# Coding-dojo "AlpesCraft"
+[⬅ Retour](./README.md)
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+# Calcul de prix
 
-## Séances
+Générer une chaine de caractères avec le prix total à partir des informations suivantes :
 
-* [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
-* [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
-* [01/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-01-price-with-fluent-api) : Calcul de prix avec API fluent
-* [22/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-22-numbers-to-english-text) : Convertir des nombres en texte (Anglais)
-* [29/03/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-03-29-numbers-to-english-text-2) : Convertir des nombres en texte (Anglais) (suite)
+- Nombre d'articles
+- Prix unitaire
+- Taxe
+
+Exemples chiffrées :
+
+- 3 articles à 1,21 € et taxe 0 % → “3.63 €”
+- 3 articles à 1,21 € et taxe 5 % → “3.81 €”
+- 3 articles à 1,21 € et taxe 20 % → “4.36 €”
+
+Puis on ajoute des réductions si le prix total dépense un seuil :
+
+- 1000 € → Remise 3% :
+    - Ex : 5 x 345,00 € + taxe 10% → “1840.58 €”
+- 5000 € → Remise 5% :
+    - Ex : 5 x 1299,00 € + taxe 10% → “6787.28 €”
+
