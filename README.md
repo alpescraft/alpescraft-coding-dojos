@@ -1,56 +1,18 @@
-# Snake Game Kata
-
-## Exécution
-
-- `npm i`
-- `npm start`
-
-Le navigateur doit s'ouvrir sur http://localhost:9000/.
+# 2048 Game Engine
 
 ## Principe
 
-Le moteur de jeu et l'affichage sont déjà implémentés. Pour ce Kata, il
-faut uniquement implémenter la méthode `update` dans le fichier 
-[snakeLiveManager.ts](src/snakeLiveManager.ts). Le moteur crée une 
-isntance de la classe `SnakeLiveManager` et appelle la méthode `update`
-plusieurs fois par seconde.
+L'affichage est déjà implémenté. Pour ce Kata, il faut coder le moteur de jeu qui prendre la grille à l'instant T et le
+déplacement souhaité, pour calculer la prochaine grille à afficher.
 
-## Implémentation
+## Règles
 
-Dans [snakeLiveManager.ts](src/snakeLiveManager.ts), la méthode `update` est
-appelée plusieurs fois par seconde. Elle reçoit l'état courant du jeu (`state`)
-et doit renvoyer le nouvel état.
-
-Un paramètre optionnel `newDirection` est présent si l'utilisateur a taper
-une flèche pour changer de direction.
-
-Si `newDirection` n'est pas présent, l'état doit être mis à jour pour faire 
-avancer le serpent dans la direction courante (voir ci-dessous).
-
-Si `newDirection` est spécifié, il faut faire "tourner" le serpent, le faire 
-avancer dans la nouvelle direction et noter sa nouvelle direction dans l'état.
-
-Si le serpent touche un bord, il faut mettre `gameOver` à `true` dans l'état.
-La classe `SnakeLiveManager` qui est instanciée contient les dimensions de
-la grille de jeu.
-
-### Déplacement
-
-Pour "déplacer" le serpent, il faut faire la transition entre les 2 
-situations suivantes : 
-
-![before-move.png](before-move.png)  ==> ![after-move.png](after-move.png)
-
-Attention, l'idée de "déplacement" peut être trompeuse. Ou la première solution
-instinctive peut ne pas êter la meilleure... 😉
-
-### Nourriture
-
-L'état contient l'emplacement de la nourriture dans `food`.
-
-Il faut positionner de la nourriture de façon aléatoire. La méthode `random()`
-du fichier [utils.ts](src/Futils.ts) peut aider.
-
-Lorsque le serpent "mange" la nourriture, il faut incrémenter le `score` dans
-l'état, et positionner une nouvelle nourriture.
-
+- Pour toute grille dans laquelle il y a eu un déplacement ou une fusion, une nouvelle cellule est créée avec soit
+  un `2`, soit un `4`.
+- Si le mouvement demandé n'entraine aucune fusion ou aucun déplacement alors aucune nouvelle cellule est ajoutée.
+- Une fusion est possible quand deux cellules avec le même nombre sont côte à côte et que le déplacement demandé est
+  dans l'axe de ces deux cellules.
+- Si une fusion est possible entre deux éléments, le résultat est la somme des deux cellules : `2 -> 4 -> 8 -> 16...`.
+- Si trois cellules sont alignés sur le même axe que le déplacement, seules les deux premières dans l'ordre inverse du
+  déplacement cellules sont fusionnées. Par exemple sur 3 `2` sont alignés verticalement et le déplacement demandé
+  est `BAS` alors seules les 2 `2` du bas seront fusionnés.
