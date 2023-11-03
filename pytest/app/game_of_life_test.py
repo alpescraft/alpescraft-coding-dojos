@@ -1,16 +1,17 @@
-class GameOfLife:
-    def get_world(self) -> list[list[bool]]:
-        return [[0] * 4] * 4
-
-    
+World = list[list[bool]]
+def evolve(world: World) -> World:
+    return world
 
 class TestGameOfLife:
 
-    def test_by_default_the_world_is_empty(self):
-        game = GameOfLife()
-        world: list[list[bool]] = game.get_world()
-        expected: list[list[bool]] = [[0,0,0,0],
-                    [0,0,0,0],
-                    [0,0,0,0],
-                    [0,0,0,0]]
-        assert world == expected
+    def test_empty_world_evolution_remains_empty(self):
+        empty_world: World = [[0, 0, 0, 0],
+                              [0, 0, 0, 0],
+                              [0, 0, 0, 0],
+                              [0, 0, 0, 0]]
+        next_world: World = evolve(empty_world)
+        expected: World = [[0,0,0,0],
+                           [0,0,0,0],
+                           [0,0,0,0],
+                           [0,0,0,0]]
+        assert next_world == expected
