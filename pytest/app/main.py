@@ -1,3 +1,5 @@
+from time import sleep
+
 import numpy as np
 import pygame
 
@@ -91,7 +93,7 @@ if __name__ == '__main__':
     #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2],
     #     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0],
     # ])
-    cells = np.pad(spaceship, ((6, 0), (20, 0))).tolist()
+    cells = np.pad(spaceship, ((6, 6), (20, 20))).tolist()
 
     running = True
     iteration = 0
@@ -104,6 +106,7 @@ if __name__ == '__main__':
         draw_grid()
 
         cells = game_of_life.evolve(cells)
+        sleep(1)
         draw_cells()
 
         iteration += 1
