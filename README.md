@@ -13,3 +13,4 @@
 * [21/06/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-06-21-snake-kata) : Snake Kata (jeu du serpent)
 * [26/09/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-09-26-game-2024-engine) : Moteur de calcul du jeu 2048
 * [03/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-03-game-of-life) : Le Jeu de la Vie
+* [22/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-22-game-of-life) : Le Jeu de la Vie 2: Décollage !
