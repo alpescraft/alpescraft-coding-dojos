@@ -1,20 +1,35 @@
-# Coding-dojo "AlpesCraft"
+> AlpesCraft Coding-dojo Grenoble Centre (@ Norsys)
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+# Séance du 08/02/2024
 
-## Séances
+## Kata Statistiques de cinéma
 
-* [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
-* [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
-* [01/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-01-price-with-fluent-api) : Calcul de prix avec API fluent
-* [22/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-22-numbers-to-english-text) : Convertir des nombres en texte (Anglais)
-* [29/03/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-03-29-numbers-to-english-text-2) : Convertir des nombres en texte (Anglais) (suite)
-* [10/05/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-05-10-price-C%23) : Calcul de prix en C#
-* [21/06/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-06-21-snake-kata) : Snake Kata (jeu du serpent)
-* [26/09/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-09-26-game-2024-engine) : Moteur de calcul du jeu 2048
-* [03/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-03-game-of-life) : Le Jeu de la Vie
-* [22/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-22-game-of-life) : Le Jeu de la Vie 2: Décollage !
-* [14/12/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-12-14-untangling-conditions) : Untangling conditions
-* [11/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-22-racing-cart-part1) : Racing Car Part 1
-* [18/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-18-calcul-de-prix-kotlin) : Calcul de prix - Intro kotlin
-* [01/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-01-brainfuck) : Brainfuck kata
+> Intéressant pour faire de la manipulation de données, notamment avec le triptyque `filter / map / reduce`
+
+Le fichier [Meilleures_audiences_en_salles_depuis_1945.json](./Meilleures_audiences_en_salles_depuis_1945.json)
+contient des données relatives au cinéma de cette forme :
+
+```
+{
+"films":[
+ {
+  "rang": 1,
+  "titre": "Titanic",
+  "réalisateur": "J. Cameron",
+  "année de sortie": 1998,
+  "nationalité": "US",
+  "entrées (millions)": 21798906
+ },
+ ...
+}
+```
+
+Ecrire du code pour lire ce fichier et en tirer les statistiques suivantes (ou d'autres) :
+- Top 5 des films
+- Top 5 des réalisateurs par nombre de films
+- Top 5 des réalisateurs par nombre de films, et leurs films par ordre de rang
+- Top 5 des réalisateurs par nombre d'entrées (et le nombre d'entrées)
+- Top 5 des pays
+- Top 5 des années avec le plus de films
+- Top 5 des années avec le plus d'entrées
+- etc...
