@@ -6,7 +6,7 @@
 
 > Intéressant pour faire de la manipulation de données, notamment avec le triptyque `filter / map / reduce`
 
-Le fichier [Meilleures_audiences_en_salles_depuis_1945.json](./Meilleures_audiences_en_salles_depuis_1945.json)
+Le fichier [Meilleures_audiences_en_salles_depuis_1945.json](src/test/resources/meilleures_audiences_en_salles_depuis_1945.json)
 contient des données relatives au cinéma de cette forme :
 
 ```
