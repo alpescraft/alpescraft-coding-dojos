@@ -1,21 +1,53 @@
-# Coding-dojo "AlpesCraft"
+# Kotlin Coroutines Kata - State Flow
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+L'objectif de ce kata est de créer un début de composant "Redux" 
+afin de créer un compteur avec 2 types d'actions, incrément et décrement.  
 
-## Séances
+Voici une représentation visuelle de ce que l'on cherche à faire :
 
-* [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
-* [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
-* [01/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-01-price-with-fluent-api) : Calcul de prix avec API fluent
-* [22/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-22-numbers-to-english-text) : Convertir des nombres en texte (Anglais)
-* [29/03/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-03-29-numbers-to-english-text-2) : Convertir des nombres en texte (Anglais) (suite)
-* [10/05/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-05-10-price-C%23) : Calcul de prix en C#
-* [21/06/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-06-21-snake-kata) : Snake Kata (jeu du serpent)
-* [26/09/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-09-26-game-2024-engine) : Moteur de calcul du jeu 2048
-* [03/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-03-game-of-life) : Le Jeu de la Vie
-* [22/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-22-game-of-life) : Le Jeu de la Vie 2: Décollage !
-* [14/12/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-12-14-untangling-conditions) : Untangling conditions
-* [11/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-22-racing-cart-part1) : Racing Car Part 1
-* [18/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-18-calcul-de-prix-kotlin) : Calcul de prix - Intro kotlin
-* [01/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-01-brainfuck) : Brainfuck kata
-* [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-08-kotlin-day2-collections) : Statistiques de cinéma en Kotlin
+```mermaid
+flowchart LR
+subgraph Redux Component
+S[Counter] --> |Mutate action| R[Reducer]
+R -->|State| S
+end
+subgraph Front
+C[Consumer] -->|Action| S
+S -->|State| C
+end
+```
+
+Le seul prérequis étant que le `State` doit être observable 
+par tout consommateur (e.g. usage de la fonction collect sur un `Flow`).
+
+### Résumé 
+
+Nous avons besoin d'un `Compteur` ayant un `État` observable de type `Int`.
+Ce `Compteur` doit pouvoir recevoir des `Action` de type `Increment` ou `Decrement` 
+qui devrons influer sur l'`État`.   
+
+## Tips & Tricks
+
+### State Flow
+
+Un `StateFlow` est un flux de données observable contenant toujours la dernière valeur émise.
+
+### Shared Flow
+
+Un `StateFlow` est un flux de données observable pouvant ne jamais émettre.
+Une fois une valeur émise elle ne peut plus être consommée.
+
+### Tester les `Flow`
+
+Pour tester le résultat d'un `Flow` vous pouvez utiliser 
+la fonction `test` de la librairie `turbine`.
+
+```kotlin
+val data = flowOf(1, 2, 3)
+data.test {
+    assertEquals(1, expectItem())
+    assertEquals(2, expectItem())
+    assertEquals(3, expectItem())
+    expectComplete()
+}
+```

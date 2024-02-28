@@ -1,0 +1,252 @@
+[
+  {
+    "id": 1,
+    "description": "Apples",
+    "type": "fruit"
+  },
+  {
+    "id": 2,
+    "description": "Bananas",
+    "type": "fruit"
+  },
+  {
+    "id": 3,
+    "description": "Carrots",
+    "type": "vegetable"
+  },
+  {
+    "id": 4,
+    "description": "Dates",
+    "type": "fruit"
+  },
+  {
+    "id": 5,
+    "description": "Eggplants",
+    "type": "vegetable"
+  },
+  {
+    "id": 6,
+    "description": "Figs",
+    "type": "fruit"
+  },
+  {
+    "id": 7,
+    "description": "Grapes",
+    "type": "fruit"
+  },
+  {
+    "id": 8,
+    "description": "Honeydew melons",
+    "type": "fruit"
+  },
+  {
+    "id": 9,
+    "description": "Iceberg lettuce",
+    "type": "vegetable"
+  },
+  {
+    "id": 10,
+    "description": "Jackfruit",
+    "type": "fruit"
+  },
+  {
+    "id": 11,
+    "description": "Kiwi",
+    "type": "fruit"
+  },
+  {
+    "id": 12,
+    "description": "Lemons",
+    "type": "fruit"
+  },
+  {
+    "id": 13,
+    "description": "Mangoes",
+    "type": "fruit"
+  },
+  {
+    "id": 14,
+    "description": "Nectarines",
+    "type": "fruit"
+  },
+  {
+    "id": 15,
+    "description": "Olives",
+    "type": "fruit"
+  },
+  {
+    "id": 16,
+    "description": "Papayas",
+    "type": "fruit"
+  },
+  {
+    "id": 17,
+    "description": "Quinces",
+    "type": "fruit"
+  },
+  {
+    "id": 18,
+    "description": "Radishes",
+    "type": "vegetable"
+  },
+  {
+    "id": 19,
+    "description": "Spinach",
+    "type": "vegetable"
+  },
+  {
+    "id": 20,
+    "description": "Tomatoes",
+    "type": "vegetable"
+  },
+  {
+    "id": 21,
+    "description": "Uva grapes",
+    "type": "fruit"
+  },
+  {
+    "id": 22,
+    "description": "Vanilla beans",
+    "type": "vegetable"
+  },
+  {
+    "id": 23,
+    "description": "Watermelons",
+    "type": "fruit"
+  },
+  {
+    "id": 24,
+    "description": "Xigua melons",
+    "type": "fruit"
+  },
+  {
+    "id": 25,
+    "description": "Yams",
+    "type": "vegetable"
+  },
+  {
+    "id": 26,
+    "description": "Zucchinis",
+    "type": "vegetable"
+  },
+  {
+    "id": 27,
+    "description": "Apricots",
+    "type": "fruit"
+  },
+  {
+    "id": 28,
+    "description": "Blueberries",
+    "type": "fruit"
+  },
+  {
+    "id": 29,
+    "description": "Cabbages",
+    "type": "vegetable"
+  },
+  {
+    "id": 30,
+    "description": "Durians",
+    "type": "fruit"
+  },
+  {
+    "id": 31,
+    "description": "Endive",
+    "type": "vegetable"
+  },
+  {
+    "id": 32,
+    "description": "Fennel",
+    "type": "vegetable"
+  },
+  {
+    "id": 33,
+    "description": "Garlic",
+    "type": "vegetable"
+  },
+  {
+    "id": 34,
+    "description": "Herbs",
+    "type": "vegetable"
+  },
+  {
+    "id": 35,
+    "description": "Jalapenos",
+    "type": "vegetable"
+  },
+  {
+    "id": 36,
+    "description": "Kale",
+    "type": "vegetable"
+  },
+  {
+    "id": 37,
+    "description": "Leeks",
+    "type": "vegetable"
+  },
+  {
+    "id": 38,
+    "description": "Mushrooms",
+    "type": "vegetable"
+  },
+  {
+    "id": 39,
+    "description": "Nopales",
+    "type": "vegetable"
+  },
+  {
+    "id": 40,
+    "description": "Onions",
+    "type": "vegetable"
+  },
+  {
+    "id": 41,
+    "description": "Peaches",
+    "type": "fruit"
+  },
+  {
+    "id": 42,
+    "description": "Quinoa",
+    "type": "vegetable"
+  },
+  {
+    "id": 43,
+    "description": "Raspberries",
+    "type": "fruit"
+  },
+  {
+    "id": 44,
+    "description": "Strawberries",
+    "type": "fruit"
+  },
+  {
+    "id": 45,
+    "description": "Turnips",
+    "type": "vegetable"
+  },
+  {
+    "id": 46,
+    "description": "Ube",
+    "type": "vegetable"
+  },
+  {
+    "id": 47,
+    "description": "Vegetable medley",
+    "type": "vegetable"
+  },
+  {
+    "id": 48,
+    "description": "Watercress",
+    "type": "vegetable"
+  },
+  {
+    "id": 49,
+    "description": "Yellow squash",
+    "type": "vegetable"
+  },
+  {
+    "id": 50,
+    "description": "Zest",
+    "type": "vegetable"
+  }
+]
