@@ -1,21 +1,116 @@
-# Coding-dojo "AlpesCraft"
+# Kotlin Coroutines Kata - Part 3
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+En tant que développeur frontend,
+j'ai pour tâche de mettre en place une couche d'aggrégation de données provenant d'une API
+afin d'afficher à l'utilisateur les informations d'un magasin et de ses produits.
 
-## Séances
+## Contexte
 
-* [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
-* [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
-* [01/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-01-price-with-fluent-api) : Calcul de prix avec API fluent
-* [22/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-22-numbers-to-english-text) : Convertir des nombres en texte (Anglais)
-* [29/03/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-03-29-numbers-to-english-text-2) : Convertir des nombres en texte (Anglais) (suite)
-* [10/05/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-05-10-price-C%23) : Calcul de prix en C#
-* [21/06/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-06-21-snake-kata) : Snake Kata (jeu du serpent)
-* [26/09/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-09-26-game-2024-engine) : Moteur de calcul du jeu 2048
-* [03/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-03-game-of-life) : Le Jeu de la Vie
-* [22/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-22-game-of-life) : Le Jeu de la Vie 2: Décollage !
-* [14/12/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-12-14-untangling-conditions) : Untangling conditions
-* [11/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-22-racing-cart-part1) : Racing Car Part 1
-* [18/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-18-calcul-de-prix-kotlin) : Calcul de prix - Intro kotlin
-* [01/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-01-brainfuck) : Brainfuck kata
-* [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-08-kotlin-day2-collections) : Statistiques de cinéma en Kotlin
+Nous avons besoin de récupérer les informations d'un magasin et de ses produits, avec leur prix et leur stock.
+
+Voici une représentation des produits en JSON:
+
+```json
+[
+  { "id": 1, "description": "Apples", "type": "fruit" },
+  { "id": 2, "description": "Bananas", "type": "fruit" },
+  { "id": 3, "description": "Carrots", "type": "vegetable" },
+  { "id": 4, "description": "Dates", "type": "fruit" },
+  { "id": 5, "description": "Eggplants", "type": "vegetable" }
+  // ...
+]
+```
+
+De même pour les prix:
+
+```json
+[
+  { "id": 1, "value": 1.99 },
+  { "id": 2, "value": 0.99 },
+  { "id": 3, "value": 0.79 },
+  { "id": 4, "value": 2.99 },
+  { "id": 5, "value": 1.49 }
+  // ...
+]
+```
+
+Et pour le stock:
+
+```json
+[
+  { "id": 1, "quantity": 43 },
+  { "id": 2, "quantity": 72 },
+  { "id": 3, "quantity": 91 },
+  { "id": 4, "quantity": 12 },
+  { "id": 5, "quantity": 64 }
+  // ...
+]
+```
+
+> Par simplicité, leur représentation en `data class` Kotlin est disponible dans le fichier `src/main/kotlin/Products.kt`
+
+> Nous avons également une API qui nous permet de récupérer ces informations, disponible dans le fichier `src/main/kotlin/ProductService.kt` avec une fausse implémentation pour nos tests.
+> ```kotlin
+> interface ProductService {
+>   suspend fun getProducts(): List<Product>
+>   suspend fun getPriceByProductId(productId: Int): ProductPrice?
+>   suspend fun getStockByProductId(productId: Int): ProductStock?
+> }
+> ```
+
+## Récupérer le détails des produits
+
+Pour notre application de nous avons besoin de récupérer:
+- les produits
+- les prix
+- leur quantité en stock
+
+Nous aimerions pouvoir récupérer ces informations sous forme d'un flux de données observable/consommable.
+
+```kotlin
+val data = flow {
+    emit(1)
+    emit(2)
+    emit(3)
+}
+data.collect { println(it) } 
+// Affiche 1
+// Affiche 2
+// Affiche 3
+```
+
+Pour récupérer des données de manière asynchrone, nous pouvons utiliser la fonction `async`.
+
+```kotlin
+val deferredValue1 = async { 21 }
+val deferredValue2 = async { 21 }
+val result = deferredValue1.await() + deferredValue2.await()
+```
+
+Pour finir, j'aimerais pouvoir filtrer ses produits par type, depuis cette couche observable.
+
+```kotlin
+val data = flow {
+    emit(1)
+    emit(2)
+    emit(3)
+}
+data.filter { it.isOdd() }.collect { println(it) } 
+// Affiche 1
+// Affiche 3
+```
+
+
+## Tips & Tricks
+
+Pour tester le résultat d'un `Flow` vous pouvez utiliser la fonction `test` de la librairie `turbine`.
+
+```kotlin
+val data = flowOf(1, 2, 3)
+data.test {
+    assertEquals(1, expectItem())
+    assertEquals(2, expectItem())
+    assertEquals(3, expectItem())
+    expectComplete()
+}
+```
