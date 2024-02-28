@@ -1,0 +1,3 @@
+class BusinessException : Throwable() {
+
+}

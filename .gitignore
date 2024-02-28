@@ -1,2 +1,11 @@
-/.idea/
-/node_modules/
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### IntelliJ IDEA ###
+.idea
+
+### Mac OS ###
+.DS_Store
