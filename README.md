@@ -1,4 +1,4 @@
-# Kotlin Coroutines Kata
+# Coroutines et client HTTP en Kotlin
 
 En tant que développeur frontend, 
 j'ai pour tâche de mettre en place une couche d'accès a une API 
