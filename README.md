@@ -1,20 +1,40 @@
-# Coding-dojo "AlpesCraft"
+# Introduction
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+This exercise is based on the Brainfuck langage.
 
-## Séances
+Brainfuck is an esoteric programming language created in 1993 by Urban Müller. It’s a minimalist langage composed of one character instructions while remaining Turing complete.
 
-* [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
-* [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
-* [01/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-01-price-with-fluent-api) : Calcul de prix avec API fluent
-* [22/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-22-numbers-to-english-text) : Convertir des nombres en texte (Anglais)
-* [29/03/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-03-29-numbers-to-english-text-2) : Convertir des nombres en texte (Anglais) (suite)
-* [10/05/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-05-10-price-C%23) : Calcul de prix en C#
-* [21/06/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-06-21-snake-kata) : Snake Kata (jeu du serpent)
-* [26/09/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-09-26-game-2024-engine) : Moteur de calcul du jeu 2048
-* [03/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-03-game-of-life) : Le Jeu de la Vie
-* [22/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-22-game-of-life) : Le Jeu de la Vie 2: Décollage !
-* [14/12/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-12-14-untangling-conditions) : Untangling conditions
-* [11/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-22-racing-cart-part1) : Racing Car Part 1
-* [18/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-18-calcul-de-prix-kotlin) : Calcul de prix - Intro kotlin
-* [01/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-01-brainfuck) : Brainfuck kata
+# Problem Description
+
+Create an interpreter, which, given a valid Brainfuck program execute it and return the memory state at the end of it.
+
+The Brainfuck langage consists of :
+
+    a program;
+    a one-dimensional array of at least 30,000 byte cells initialized to zero, representing ASCII characters;
+    a movable data pointer (initialized to point to the leftmost byte of the array).
+
+The program is composed of 8 different commands :
+Character 	Meaning
++ 	Increment the byte at the data pointer.
+- 	Decrement the byte at the data pointer.
+> 	Increment the data pointer.
+< 	Decrement the data pointer.
+. 	Output the byte at the data pointer (ASCII format)
+, 	Accept one byte of input (ASCII format), storing its value in the byte at the data pointer.
+[ 	If the byte at the data pointer is zero jump it forward to the command after the matching ] command.
+] 	If the byte at the data pointer is nonzero jump it back to the command after the matching [ command.
+
+## Suggested steps
+
+    Implement + - > < commands to manage memory.
+    Implement . , to manage I/O.
+    Implement [ ] to manage jump/loops.
+
+## Additional constraints
+
+    When the data pointer is on the first bite and you use the < command the data pointer is moved to the last bite of the array.
+    Value stored in the array cannot be negative, if you decrement from 0 you go back to 255.
+    Instructions should be easy to rename if I want to change the syntax to OooWee from Rick and Morty.
+    It should be easy to add new instructions for example :
+        ! : goes directly to the end of the memory array.
