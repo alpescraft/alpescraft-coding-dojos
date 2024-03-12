@@ -20,3 +20,4 @@
 * [01/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-01-brainfuck) : Brainfuck kata
 * [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-08-kotlin-day2-collections) : Statistiques de cinéma en Kotlin
 * [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-29-kotlin-day3-http-client) : Coroutines et Client HTTP en Kotlin
+* [12/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-12-social-network) : Social network
