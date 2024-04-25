@@ -24,7 +24,7 @@ class ShoppingCart:
         return self.price >= 100
 
     def has_discount_new(self):
-        return self.price >= 100
+        return self.calculate_total_price_new() >= 100
 
     def number_of_products(self):
         return 1
