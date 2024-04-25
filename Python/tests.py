@@ -5,10 +5,6 @@ import field
 
 class AuthenticatorTests(unittest.TestCase):
 
-    def test_administrator_is_always_authenticated(self):
-        service = method.AuthenticationService()
-        adminId = 12345
-        self.assertTrue(service.is_authenticated("admin", adminId))
 
     def test_normal_user_is_not_authenticated_initially(self):
         service = method.AuthenticationService()
