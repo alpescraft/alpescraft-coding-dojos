@@ -26,7 +26,7 @@ class ShoppingCartTests(unittest.TestCase):
     def test_the_total_price_of_the_cart_is_total_of_its_contents(self):
         shoppingCart = field.ShoppingCart()
         shoppingCart.add(10)
-        self.assertEqual(10, shoppingCart.calculate_total_price_new())
+        self.assertEqual(10, shoppingCart.calculate_total_price())
 
     def test_has_discount_when_contains_at_least_one_premium_item(self):
         shoppingCart = field.ShoppingCart()
