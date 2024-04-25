@@ -27,6 +27,13 @@ class ShoppingCartTests(unittest.TestCase):
         shoppingCart.add(10)
         self.assertEqual(1, shoppingCart.number_of_products())
 
+    def test_cart_may_have_several_item(self):
+        shoppingCart = field.ShoppingCart()
+        shoppingCart.add(10)
+        shoppingCart.add(10)
+        shoppingCart.add(10)
+        self.assertEqual(3, shoppingCart.number_of_products())
+
     def test_the_total_price_of_the_cart_is_total_of_its_contents(self):
         shoppingCart = field.ShoppingCart()
         shoppingCart.add(10)
