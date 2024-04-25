@@ -3,7 +3,7 @@ class ShoppingCart:
     prices = []
  
     def __init__(self):
-        self.piuklkrices = []
+        self.prices = []
 
     '''
     the goal is to remove the field above, using a list of prices instead:
