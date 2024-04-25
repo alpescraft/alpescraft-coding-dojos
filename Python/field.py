@@ -23,6 +23,9 @@ class ShoppingCart:
     def has_discount(self):
         return self.price >= 100
 
+    def has_discount_new(self):
+        return self.price >= 100
+
     def number_of_products(self):
         return 1
 
