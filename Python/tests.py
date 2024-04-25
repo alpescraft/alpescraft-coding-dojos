@@ -36,7 +36,7 @@ class ShoppingCartTests(unittest.TestCase):
     def test_doesnt_have_discount_when_all_its_items_are_cheap(self):
         shoppingCart = field.ShoppingCart()
         shoppingCart.add(10)
-        self.assertFalse(shoppingCart.has_discount())
+        self.assertFalse(shoppingCart.has_discount_new())
 
 
 if __name__ == "__main__":
