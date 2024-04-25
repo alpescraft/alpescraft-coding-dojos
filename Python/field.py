@@ -30,7 +30,7 @@ class ShoppingCart:
         return 1
 
     def number_of_products_new(self):
-        return 1
+        return len(self.prices)
 
 
 class SomeConsumer():
