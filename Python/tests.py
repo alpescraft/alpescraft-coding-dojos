@@ -21,7 +21,7 @@ class ShoppingCartTests(unittest.TestCase):
     def test_cat_may_just_have_a_single_item(self):
         shoppingCart = field.ShoppingCart()
         shoppingCart.add(10)
-        self.assertEqual(1, shoppingCart.number_of_products_new())
+        self.assertEqual(1, shoppingCart.number_of_products())
 
     def test_the_total_price_of_the_cart_is_total_of_its_contents(self):
         shoppingCart = field.ShoppingCart()
