@@ -23,7 +23,7 @@ class AuthenticationClient:
 
 class YetAnotherClient:
     def run(self):
-        AuthenticationService().is_authenticated_new("", 100)
+        AuthenticationService().is_authenticated_new("role", 100)
 
 
 if __name__ == "__main__":
