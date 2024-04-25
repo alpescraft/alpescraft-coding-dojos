@@ -14,9 +14,7 @@ class ShoppingCart:
     def add(self, price):
         self.price = price
         self.prices.append(price)
-
-    def calculate_total_price(self):
-        return self.price
+        
     def calculate_total_price_new(self):
         return sum(self.prices)
 
