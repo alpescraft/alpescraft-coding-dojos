@@ -13,7 +13,7 @@ class AuthenticatorTests(unittest.TestCase):
     def test_normal_user_is_not_authenticated_initially(self):
         service = method.AuthenticationService()
         normalUserId = 11111
-        self.assertFalse(service.is_authenticated(normalUserId))
+        self.assertFalse(service.is_authenticated_new("user", normalUserId))
 
 
 class ShoppingCartTests(unittest.TestCase):
