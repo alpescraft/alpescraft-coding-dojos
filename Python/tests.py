@@ -10,6 +10,11 @@ class AuthenticatorTests(unittest.TestCase):
         adminId = 12345
         self.assertTrue(service.is_authenticated("admin", adminId))
 
+    def test_admin_role_is_not_authenticated(self):
+        service = method.AuthenticationService()
+        adminId = 22222
+        self.assertFalse(service.is_authenticated("admin", adminId))
+
     def test_normal_user_is_not_authenticated_initially(self):
         service = method.AuthenticationService()
         normalUserId = 11111
