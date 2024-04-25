@@ -37,7 +37,7 @@ class SomeConsumer():
     def do_stuff(self):
         shoppingCart = ShoppingCart()
         shoppingCart.add(100)
-        print("other consumer", shoppingCart.calculate_total_price())
+        print("other consumer", shoppingCart.calculate_total_price_new())
 
 
 if __name__ == "__main__":
