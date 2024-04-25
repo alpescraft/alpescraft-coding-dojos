@@ -2,7 +2,7 @@ class AuthenticationService:
     def is_authenticated(self, id):
         return id == 12345
 
-    def is_authenticated(self, id):
+    def is_authenticated_new(self, role, id):
         return id == 12345
 
     '''
