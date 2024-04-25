@@ -29,6 +29,9 @@ class ShoppingCart:
     def number_of_products(self):
         return 1
 
+    def number_of_products_new(self):
+        return 1
+
 
 class SomeConsumer():
     def do_stuff(self):
