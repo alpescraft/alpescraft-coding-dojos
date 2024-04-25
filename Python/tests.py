@@ -31,12 +31,12 @@ class ShoppingCartTests(unittest.TestCase):
     def test_has_discount_when_contains_at_least_one_premium_item(self):
         shoppingCart = field.ShoppingCart()
         shoppingCart.add(100)
-        self.assertTrue(shoppingCart.has_discount_new())
+        self.assertTrue(shoppingCart.has_discount())
 
     def test_doesnt_have_discount_when_all_its_items_are_cheap(self):
         shoppingCart = field.ShoppingCart()
         shoppingCart.add(10)
-        self.assertFalse(shoppingCart.has_discount_new())
+        self.assertFalse(shoppingCart.has_discount())
 
 
 if __name__ == "__main__":

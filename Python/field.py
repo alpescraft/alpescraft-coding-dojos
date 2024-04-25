@@ -16,7 +16,7 @@ class ShoppingCart:
     def calculate_total_price(self):
         return sum(self.prices)
 
-    def has_discount_new(self):
+    def has_discount(self):
         return self.calculate_total_price() >= 100
 
     def number_of_products_new(self):
@@ -35,4 +35,4 @@ if __name__ == "__main__":
     shoppingCart.add(10)
     print("number of products:", shoppingCart.number_of_products_new())
     print("total price:", shoppingCart.calculate_total_price())
-    print("has discount:", shoppingCart.has_discount_new())
+    print("has discount:", shoppingCart.has_discount())
