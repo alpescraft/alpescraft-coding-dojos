@@ -21,12 +21,12 @@ class ShoppingCartTests(unittest.TestCase):
     def test_cat_may_just_have_a_single_item(self):
         shoppingCart = field.ShoppingCart()
         shoppingCart.add(10)
-        self.assertEqual(1, shoppingCart.number_of_products())
+        self.assertEqual(1, shoppingCart.number_of_products_new())
 
     def test_the_total_price_of_the_cart_is_total_of_its_contents(self):
         shoppingCart = field.ShoppingCart()
         shoppingCart.add(10)
-        self.assertEqual(10, shoppingCart.calculate_total_price())
+        self.assertEqual(10, shoppingCart.calculate_total_price_new())
 
     def test_has_discount_when_contains_at_least_one_premium_item(self):
         shoppingCart = field.ShoppingCart()
