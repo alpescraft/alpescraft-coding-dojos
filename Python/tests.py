@@ -18,7 +18,12 @@ class AuthenticatorTests(unittest.TestCase):
 
 class ShoppingCartTests(unittest.TestCase):
 
-    def test_cat_may_just_have_a_single_item(self):
+    def test_empty_item(self):
+        shoppingCart = field.ShoppingCart()
+        shoppingCart.add(10)
+        self.assertEqual(1, shoppingCart.number_of_products())
+
+    def test_cart_may_just_have_a_single_item(self):
         shoppingCart = field.ShoppingCart()
         shoppingCart.add(10)
         self.assertEqual(1, shoppingCart.number_of_products())
