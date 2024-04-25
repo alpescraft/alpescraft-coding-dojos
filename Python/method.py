@@ -3,7 +3,7 @@ class AuthenticationService:
         return id == 12345
 
     def is_authenticated_new(self, role, id):
-        return is_authenticated(id)
+        return id == 12345
 
     '''
     the goal is to replace the method above with this one:
