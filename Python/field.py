@@ -18,9 +18,6 @@ class ShoppingCart:
     def calculate_total_price_new(self):
         return sum(self.prices)
 
-    def has_discount(self):
-        return self.price >= 100
-
     def has_discount_new(self):
         return self.calculate_total_price_new() >= 100
 
