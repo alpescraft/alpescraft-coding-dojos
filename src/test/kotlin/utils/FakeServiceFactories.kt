@@ -8,15 +8,19 @@ import ProductStock
 import StockService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlin.time.Duration.Companion.milliseconds
 
 object DI { // For (Manual) Dependency Injection
     fun productService(): ProductService = FakeProductService()
+    fun badProductService(): ProductService = FakeBadProductService()
     fun priceService(): PriceService = FakePriceService()
     fun stockService(): StockService = FakeStockService()
 }
 
+private class FakeBadProductService: ProductService {
+    override suspend fun getProducts(): List<Product> {
+        return FakeDataReader.readBadProducts()
+    }
+}
 private class FakeProductService: ProductService {
     override suspend fun getProducts(): List<Product> {
         return FakeDataReader.readProducts()

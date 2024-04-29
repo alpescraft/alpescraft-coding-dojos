@@ -10,6 +10,10 @@ object FakeDataReader {
         val json = readFile("fake_products.json")
         return Json.decodeFromString<List<Product>>(json)
     }
+    fun readBadProducts() : List<Product> {
+        val json = readFile("fake_bad_products.json")
+        return Json.decodeFromString<List<Product>>(json)
+    }
 
     fun readPrices() : List<ProductPrice> {
         val json = readFile("fake_prices.json")

@@ -6,7 +6,8 @@ afin d'afficher à l'utilisateur les informations d'un magasin et de ses produit
 
 ## Contexte
 
-Nous avons besoin de récupérer les informations d'un magasin et de ses produits, avec leur prix et leur stock.
+Nous avons besoin de récupérer les informations d'un magasin et de ses produits, 
+avec leur prix et leur stock.
 
 Voici une représentation des produits en JSON:
 
