@@ -1,0 +1,19 @@
+
+Characters:
+    <Hero, Health=1000 (Alive)>
+    <Orc, Health=1000 (Alive)>
+    <WeakHero, Health=10 (Alive)>
+
+playing move <Orc DealDamage=100 to Hero>
+playing move <Orc DealDamage=900 to Hero>
+playing move <Orc DealDamage=100 to WeakHero>
+playing move <Orc DealDamage=100 to Orc>
+playing move <WeakHero DealDamage=100 to Orc>
+playing move <Orc heal=100>
+playing move <WeakHero heal=100>
+playing move <Orc joinFaction=Pantheon>
+
+Characters:
+    <Hero, Health=0 (Dead)>
+    <Orc, Health=1100 (Alive), Factions={'Pantheon'}>
+    <WeakHero, Health=0 (Dead)>

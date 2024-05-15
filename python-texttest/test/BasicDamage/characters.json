@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Hero",
+    "health": 1000,
+    "isAlive": true
+  },
+  {
+    "name": "Orc",
+    "health": 1000,
+    "isAlive": true
+  },
+  {
+    "name": "WeakHero",
+    "health": 10,
+    "isAlive": true
+  }
+]

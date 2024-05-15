@@ -1,0 +1,47 @@
+[
+  {
+    "character1": "Orc",
+    "character2": "Hero",
+    "moveType": "DealDamage",
+    "amount": 100
+  },
+    {
+    "character1": "Orc",
+    "character2": "Hero",
+    "moveType": "DealDamage",
+    "amount": 900
+  },
+  {
+    "character1": "Orc",
+    "character2": "WeakHero",
+    "moveType": "DealDamage",
+    "amount": 100
+  },
+  {
+    "character1": "Orc",
+    "character2": "Orc",
+    "moveType": "DealDamage",
+    "amount": 100
+  },
+  {
+    "character1": "WeakHero",
+    "character2": "Orc",
+    "moveType": "DealDamage",
+    "amount": 100
+  },
+  {
+    "character": "Orc",
+    "moveType": "Heal",
+    "amount": 100
+  },
+  {
+    "character": "WeakHero",
+    "moveType": "Heal",
+    "amount": 100
+  },
+  {
+    "character": "Orc",
+    "factionName": "Pantheon",
+    "moveType": "JoinFaction"
+  }
+]

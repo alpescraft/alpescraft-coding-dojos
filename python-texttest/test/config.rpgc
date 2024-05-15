@@ -1,0 +1,11 @@
+# Full path to the System Under Test (or Java Main Class name)
+executable:${TEXTTEST_ROOT}/test_rig.py
+
+# Naming scheme to use for files for stdin,stdout and stderr
+filename_convention_scheme:standard
+
+# Expanded name to use for application
+full_name:RPG Combat
+
+copy_test_path:characters.json
+copy_test_path:combat_moves.json

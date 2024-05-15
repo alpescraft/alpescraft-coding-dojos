@@ -1,27 +1,62 @@
-# Coding-dojo "AlpesCraft"
+# RPG Combat
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+This Kata that has you building simple combat rules as for a role-playing game (RPG). The domain doesn’t include a map or any other character skills apart from their ability to damage and heal one another.
 
-## Séances
+The problem is broken down into several user stories to help you to focus on doing one thing at a time. Complete one user story before starting on the next one. Be sure to work on the problem in small steps and pay close attention to the design of both the code and the automated tests in every step.
 
-* [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
-* [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
-* [01/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-01-price-with-fluent-api) : Calcul de prix avec API fluent
-* [22/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-22-numbers-to-english-text) : Convertir des nombres en texte (Anglais)
-* [29/03/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-03-29-numbers-to-english-text-2) : Convertir des nombres en texte (Anglais) (suite)
-* [10/05/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-05-10-price-C%23) : Calcul de prix en C#
-* [21/06/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-06-21-snake-kata) : Snake Kata (jeu du serpent)
-* [26/09/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-09-26-game-2024-engine) : Moteur de calcul du jeu 2048
-* [03/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-03-game-of-life) : Le Jeu de la Vie
-* [22/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-22-game-of-life) : Le Jeu de la Vie 2: Décollage !
-* [14/12/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-12-14-untangling-conditions) : Untangling conditions
-* [11/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-22-racing-cart-part1) : Racing Car Part 1
-* [18/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-18-calcul-de-prix-kotlin) : Calcul de prix - Intro kotlin
-* [01/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-01-brainfuck) : Brainfuck kata
-* [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-08-kotlin-day2-collections) : Statistiques de cinéma en Kotlin
-* [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-29-kotlin-day3-http-client) : Coroutines et Client HTTP en Kotlin
-* [12/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-12-social-network) : Social network
-* [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-21-kotlin-day4-coroutines) : Kotlin StateFlow
-* [04/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-04-theatrical-players-refactoring) : Theatrical Players Refactoring Kata
-* [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-10-kotlin-day5-flow) : Coroutines Flow
-* [25/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-25-parallel-change-with_tcr) : Parallel changer with TCR
+## Damage and Health
+
+    * All Characters, when created, have:
+        * Health, starting at 1000
+        * May be Alive or Dead, starting Alive
+    * Characters can Deal Damage to Characters.
+        * Damage is subtracted from Health
+        * When damage received exceeds current Health, Health becomes 0 and the character dies
+        * A Character cannot Deal Damage to itself
+    * A Character can Heal themselves.
+        * Dead characters cannot heal
+
+## Levels
+
+    * All characters have a Level, starting at 1
+        * A Character cannot have a health above 1000 until they reach level 6, when the maximum increases to 1500
+    * When dealing damage:
+        * If the target is 5 or more Levels above the attacker, Damage is reduced by 50%
+        * If the target is 5 or more Levels below the attacker, Damage is increased by 50%
+
+## Factions
+
+    * Characters may belong to one or more Factions.
+        * Newly created Characters belong to no Faction.
+
+    * A Character may Join or Leave one or more Factions.
+    * Players belonging to the same Faction are considered Allies.
+        * Allies cannot Deal Damage to one another.
+        * Allies can Heal one another and non-allies cannot.
+
+## Magical objects
+
+    * As well as Characters there are also Magical Objects
+        * Magical Objects have Health
+        * The maximum amount of Health is fixed at the time the object is created
+        * When reduced to 0 Health, Magical Objects are Destroyed
+        * Magical Objects cannot be Healed by Characters
+        * Magical Objects do not belong to Factions; they are neutral
+    * Characters can gain health from a Healing Magical Object.
+        * Characters can gain any amount of health from the Object, up to its maximum and theirs
+        * Healing Magical Objects cannot deal Damage
+    * Characters can deal Damage by using a Magical Weapon.
+        * These Magical Objects deal a fixed amount of damage when they are used
+        * The amount of damage is fixed at the time the weapon is created
+        * Every time the weapon is used, the Health is reduced by 1
+        * Magical Weapons cannot give Health to a Character
+
+## Changing level
+
+    * Level 1 Characters that survive 1000 damage points gain a level, (this may be counted over several battles)
+        * a character cannot gain a level while receiving damage, it happens directly afterwards (if the player is still alive)
+        * Level 2 Characters need to survive an additional 2000 damage points to gain a level, Level 3 Characters need to survive an additional 3000, and so on.
+    * Level 1 Characters that have ever been part of 3 distinct factions gain a level
+        * Level 2 Characters need to join an additional 3 distinct factions to gain a level, Level 3 Characters need to join an additional 3, and so on.
+    * The maximum Level for Characters is 10
+        * Characters cannot lose a level they have gained
