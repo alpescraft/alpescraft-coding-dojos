@@ -1,29 +1,49 @@
-# Coding-dojo "AlpesCraft"
+# Coding Dojo #1bis
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+## Title: Price Calculation Kata
 
-## Séances
+Goal is to create a module with 2 public fonctions:
 
-* [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
-* [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
-* [01/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-01-price-with-fluent-api) : Calcul de prix avec API fluent
-* [22/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-22-numbers-to-english-text) : Convertir des nombres en texte (Anglais)
-* [29/03/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-03-29-numbers-to-english-text-2) : Convertir des nombres en texte (Anglais) (suite)
-* [10/05/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-05-10-price-C%23) : Calcul de prix en C#
-* [21/06/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-06-21-snake-kata) : Snake Kata (jeu du serpent)
-* [26/09/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-09-26-game-2024-engine) : Moteur de calcul du jeu 2048
-* [03/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-03-game-of-life) : Le Jeu de la Vie
-* [22/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-22-game-of-life) : Le Jeu de la Vie 2: Décollage !
-* [14/12/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-12-14-untangling-conditions) : Untangling conditions
-* [11/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-22-racing-cart-part1) : Racing Car Part 1
-* [18/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-18-calcul-de-prix-kotlin) : Calcul de prix - Intro kotlin
-* [01/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-01-brainfuck) : Brainfuck kata
-* [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-08-kotlin-day2-collections) : Statistiques de cinéma en Kotlin
-* [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-29-kotlin-day3-http-client) : Coroutines et Client HTTP en Kotlin
-* [12/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-12-social-network) : Social network
-* [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-21-kotlin-day4-coroutines) : Kotlin StateFlow
-* [04/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-04-theatrical-players-refactoring) : Theatrical Players Refactoring Kata
-* [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-10-kotlin-day5-flow) : Coroutines Flow
-* [25/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-25-parallel-change-with_tcr) : Parallel changer with TCR
-* [15/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-05-15-RPG-combat) : RPG combat with approval testing
-* [01/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-01-bowling) : Bowling
+- 1 x to calculate the price of items.
+- 1 x to covert a price in various currencies.
+
+1- Implement the total price calculation based on the following parameters:
+
+- Number of items
+- Unit price
+- Tax
+
+2 - Take into account discounts:
+
+- €1000: 3% discount
+- €5000: 5% discount
+
+3- Add currency converter:
+
+- 1 € = 2 Krupnic
+- 1 € = 3 Zorglub
+
+### Examples
+
+Prices:
+
+- Excl. VAT: 3 items at €1.21 each + 0% ⇒ “€3.63”
+- Incl. VAT 5%: 3 items at €1.21 each + 5% ⇒ “€3.81”
+- Incl. VAT 20%: 3 items at €1.21 each + 20% ⇒ “€4.36”
+
+Discounts:
+
+- €1000 → 3% Discount: 5 x €345.00 + 10% tax → “€1840.58”
+- €5000 → 5% Discount: 5 x €1299.00 + 10% tax → “€6787.28”
+
+Currencies:
+
+- 20€ = 40.00 Krupnic
+- 20€ = 60.00 Zorglub
+
+## Proposed editor
+
+The idea is to use on online editor. Gitpod seems a good solution in that
+case as only a browser is required to edit the code and the workspace can
+be shared between participants.
+![Edition into Gitpod](pictures/gitpod.png)
