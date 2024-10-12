@@ -26,4 +26,5 @@
 * [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-10-kotlin-day5-flow) : Coroutines Flow
 * [25/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-25-parallel-change-with_tcr) : Parallel changer with TCR
 * [15/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-05-15-RPG-combat) : RPG combat with approval testing
+* [21/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-30-kotlin-redux) : Redux in Kotlin
 * [01/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-01-bowling) : Bowling
