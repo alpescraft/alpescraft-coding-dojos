@@ -1,30 +1,28 @@
-# Coding-dojo "AlpesCraft"
+ # Potter
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+ ## Problem Description
 
-## Séances
+Once upon a time there was a series of 5 books about a very English hero called Harry. (At least when this Kata was invented, there were only 5. Since then they have multiplied) Children all over the world thought he was fantastic, and, of course, so did the publisher. So in a gesture of immense generosity to mankind, (and to increase sales) they set up the following pricing model to take advantage of Harry’s magical powers.
 
-* [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
-* [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
-* [01/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-01-price-with-fluent-api) : Calcul de prix avec API fluent
-* [22/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-22-numbers-to-english-text) : Convertir des nombres en texte (Anglais)
-* [29/03/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-03-29-numbers-to-english-text-2) : Convertir des nombres en texte (Anglais) (suite)
-* [10/05/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-05-10-price-C%23) : Calcul de prix en C#
-* [21/06/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-06-21-snake-kata) : Snake Kata (jeu du serpent)
-* [26/09/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-09-26-game-2024-engine) : Moteur de calcul du jeu 2048
-* [03/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-03-game-of-life) : Le Jeu de la Vie
-* [22/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-22-game-of-life) : Le Jeu de la Vie 2: Décollage !
-* [14/12/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-12-14-untangling-conditions) : Untangling conditions
-* [11/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-22-racing-cart-part1) : Racing Car Part 1
-* [18/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-18-calcul-de-prix-kotlin) : Calcul de prix - Intro kotlin
-* [01/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-01-brainfuck) : Brainfuck kata
-* [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-08-kotlin-day2-collections) : Statistiques de cinéma en Kotlin
-* [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-29-kotlin-day3-http-client) : Coroutines et Client HTTP en Kotlin
-* [12/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-12-social-network) : Social network
-* [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-21-kotlin-day4-coroutines) : Kotlin StateFlow
-* [04/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-04-theatrical-players-refactoring) : Theatrical Players Refactoring Kata
-* [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-10-kotlin-day5-flow) : Coroutines Flow
-* [25/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-25-parallel-change-with_tcr) : Parallel changer with TCR
-* [15/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-05-15-RPG-combat) : RPG combat with approval testing
-* [21/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-30-kotlin-redux) : Redux in Kotlin
-* [01/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-01-bowling) : Bowling
+One copy of any of the five books costs 8 EUR. If, however, you buy two different books from the series, you get a 5% discount on those two books. If you buy 3 different books, you get a 10% discount. With 4 different books, you get a 20% discount. If you go the whole hog, and buy all 5, you get a huge 25% discount.
+
+Note that if you buy, say, four books, of which 3 are different titles, you get a 10% discount on the 3 that form part of a set, but the fourth book still costs 8 EUR.
+
+Potter mania is sweeping the country and parents of teenagers everywhere are queueing up with shopping baskets overflowing with Potter books. Your mission is to write a piece of code to calculate the price of any conceivable shopping basket, giving as big a discount as possible.
+
+For example, how much does this basket of books cost?
+
+ * 2 copies of the first book
+ * 2 copies of the second book
+ * 2 copies of the third book
+ * 1 copy of the fourth book
+ * 1 copy of the fifth book
+
+answer :
+
+```
+  (4 * 8) - 20% [first book, second book, third book, fourth book]
++ (4 * 8) - 20% [first book, second book, third book, fifth book]
+= 25.6 * 2
+= 51.20
+```
