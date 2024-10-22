@@ -28,3 +28,4 @@
 * [15/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-05-15-RPG-combat) : RPG combat with approval testing
 * [21/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-30-kotlin-redux) : Redux in Kotlin
 * [01/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-01-bowling) : Bowling
+* [22/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-22-potter) : Potter
