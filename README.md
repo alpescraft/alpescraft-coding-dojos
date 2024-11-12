@@ -1,33 +1,48 @@
-# Coding-dojo "AlpesCraft"
+# Task List
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+Adapted from [this repo](https://github.com/codurance/task-list)
 
-## Séances
+The topic of this kata is primitive obsesion.
 
-- [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
-- [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
-- [01/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-01-price-with-fluent-api) : Calcul de prix avec API fluent
-- [22/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-22-numbers-to-english-text) : Convertir des nombres en texte (Anglais)
-- [29/03/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-03-29-numbers-to-english-text-2) : Convertir des nombres en texte (Anglais) (suite)
-- [10/05/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-05-10-price-C%23) : Calcul de prix en C#
-- [21/06/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-06-21-snake-kata) : Snake Kata (jeu du serpent)
-- [26/09/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-09-26-game-2024-engine) : Moteur de calcul du jeu 2048
-- [03/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-03-game-of-life) : Le Jeu de la Vie
-- [22/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-22-game-of-life) : Le Jeu de la Vie 2: Décollage !
-- [14/12/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-12-14-untangling-conditions) : Untangling conditions
-- [11/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-22-racing-cart-part1) : Racing Car Part 1
-- [18/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-18-calcul-de-prix-kotlin) : Calcul de prix - Intro kotlin
-- [01/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-01-brainfuck) : Brainfuck kata
-- [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-08-kotlin-day2-collections) : Statistiques de cinéma en Kotlin
-- [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-29-kotlin-day3-http-client) : Coroutines et Client HTTP en Kotlin
-- [12/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-12-social-network) : Social network
-- [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-21-kotlin-day4-coroutines) : Kotlin StateFlow
-- [04/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-04-theatrical-players-refactoring) : Theatrical Players Refactoring Kata
-- [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-10-kotlin-day5-flow) : Coroutines Flow
-- [25/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-25-parallel-change-with_tcr) : Parallel changer with TCR
-- [15/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-05-15-RPG-combat) : RPG combat with approval testing
-- [21/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-30-kotlin-redux) : Redux in Kotlin
-- [27/09/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-09-27-calcul-de-prix-rust) : Calcul de prix en Rust
-- [01/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-01-bowling) : Bowling
-- [22/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-22-potter) : Potter
-- [30/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-31-calcul-de-prix-rust%232) : Calcul de prix en Rust (suite)
+A *primitive* is any concept technical in nature, and not relevant to your business domain. This includes integers, characters, strings, and collections (lists, sets, maps, etc.), but also things like threads, readers, writers, parsers, exceptions, and anything else purely focused on technical concerns. By contrast, the business concepts in this project, "task", "project", etc. should be considered part of your *domain model*. The domain model is the language of the business in which you operate, and using it in your code base helps you avoid speaking different languages, helping you to avoid misunderstandings. In our experience, misunderstandings are the biggest cause of bugs.
+
+## Exercise
+
+Try implementing the following features, refactoring primitives away as you go. Try not to implement any new behaviour until the code you're about to change has been completely refactored to remove primitives, i.e. **_Only refactor the code you're about to change, then make your change. Don't refactor unrelated code._**
+
+One set of criteria to identify when primitives have been removed is to only allow primitives in constructor parameter lists, and as local variables and private fields. They shouldn't be passed into methods or returned from methods. The only exception is true infrastructure code—code that communicates with the terminal, the network, the database, etc. Infrastructure requires serialisation to primitives, but should be treated as a special case. You could even consider your infrastructure as a separate domain, technical in nature, in which primitives *are* the domain.
+
+You should try to wrap tests around the behaviour you're refactoring. At the beginning, these will mostly be high-level system tests, but you should find yourself writing more unit tests as you proceed.
+
+### Features
+
+  1. Deadlines
+      1. Give each task an optional deadline with the `deadline <ID> <date>` command.
+      2. Show all tasks due today with the `today` command.
+  2. Customisable IDs
+      1. Allow the user to specify an identifier that's not a number.
+      2. Disallow spaces and special characters from the ID.
+  3. Deletion
+      1. Allow users to delete tasks with the `delete <ID>` command.
+  4. Views
+      1. View tasks by date with the `view by date` command.
+      2. View tasks by deadline with the `view by deadline` command.
+      3. Don't remove the functionality that allows users to view tasks by project, but change the command to `view by project`.
+
+### Considerations and Approaches
+
+Think about *behaviour attraction*. Quite often, you can reduce the amount of behaviour that relies upon primitives from the outside world (as opposed to internal primitives stored as private fields or locals) simply by moving the behaviour to a *value object* which holds the primitives. If you don't have a value object, create one. These value objects are known as *behaviour attractors* because once they're created, they make it far more obvious where behaviour should live.
+
+A related principle is to consider the type of object you've created. Is it a true value object (or *record*), which simply consists of `getFoo` methods that return their internal primitives (to be used only with infrastructure, of course), or is it an object with behaviour? If it's the latter, you should avoid exposing any internal state at all. The former should not contain any behaviour. Treating something as both a record and an object generally leads to disaster.
+
+Your approach will depend on whether you learn toward a functional or an object-oriented style for modelling your domain. Both encourage encapsulation, but *information hiding* techniques are generally only used in object-oriented code. They also differ in the approach used to extract behaviour; functional programming often works with closed sets of behaviour through *tagged unions*, whereas in object-oriented code, we use *polymorphism* to achieve the same ends in an open, extensible manner.
+
+Separate your commands and queries. Tell an object to do something, or ask it about something, but don't do both.
+
+Lastly, consider SOLID principles when refactoring:
+
+  * Aim to break large chunks of behaviour into small ones, each with a single responsibility.
+  * Think about the dimensions in which it should be easy to extend the application.
+  * Don't surprise your callers. Conform to the interface.
+  * Segregate behaviour based upon the needs.
+  * Depend upon abstractions.
