@@ -33,3 +33,4 @@
 - [30/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-31-calcul-de-prix-rust%232) : Calcul de prix en Rust (suite)
 - [12/11/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-11-12-task-list) : Task list
 - [17/12/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-12-17-forth) : Forth
+- [04/02/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-02-04-bownling) : Bowling
