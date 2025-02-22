@@ -37,3 +37,4 @@
 - [20/12/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-12-20-aoc2022%231) : AOC2022 #1 (functional programming)
 - [30/01/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/20245-01-30-aoc2022%232) : AOC2022 #2 (ownership)
 - [04/02/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-02-04-bownling) : Bowling
+- [20/02/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-02-20-starfield) : Starfield Rust (struct, methods, extension trait)
