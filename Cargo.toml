@@ -1,0 +1,12 @@
+[package]
+name = "dojo3"
+version = "0.1.0"
+edition = "2021"
+description = "Dojo intro"
+license = "Apache-2.0"
+
+[dependencies]
+macroquad = "0.4.13"
+
+[profile.dev]
+debug = true

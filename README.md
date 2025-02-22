@@ -1,39 +1,95 @@
-# Coding-dojo "AlpesCraft"
+# Coding Dojo #3
 
-> Dépôt contenant les sources des sessions de [AlpesCraft coding-dojos](https://www.meetup.com/fr-FR/alpescraft-coding-dojos/).
+A rust exercise to be done in a coding dojo.
 
-## Séances
+The goal is to create a small
+[intro](https://en.wikipedia.org/wiki/Crack_intro).
 
-- [07/12/2022](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2022-12-07-cupcake) : Cupcake
-- [11/01/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-01-11-cupcake) : Cupcake (suite)
-- [01/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-01-price-with-fluent-api) : Calcul de prix avec API fluent
-- [22/02/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-02-22-numbers-to-english-text) : Convertir des nombres en texte (Anglais)
-- [29/03/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-03-29-numbers-to-english-text-2) : Convertir des nombres en texte (Anglais) (suite)
-- [10/05/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-05-10-price-C%23) : Calcul de prix en C#
-- [21/06/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-06-21-snake-kata) : Snake Kata (jeu du serpent)
-- [26/09/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-09-26-game-2024-engine) : Moteur de calcul du jeu 2048
-- [03/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-03-game-of-life) : Le Jeu de la Vie
-- [22/11/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-11-22-game-of-life) : Le Jeu de la Vie 2: Décollage !
-- [14/12/2023](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2023-12-14-untangling-conditions) : Untangling conditions
-- [11/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-22-racing-cart-part1) : Racing Car Part 1
-- [18/01/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-01-18-calcul-de-prix-kotlin) : Calcul de prix - Intro kotlin
-- [01/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-01-brainfuck) : Brainfuck kata
-- [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-08-kotlin-day2-collections) : Statistiques de cinéma en Kotlin
-- [08/02/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-02-29-kotlin-day3-http-client) : Coroutines et Client HTTP en Kotlin
-- [12/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-12-social-network) : Social network
-- [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-03-21-kotlin-day4-coroutines) : Kotlin StateFlow
-- [04/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-04-theatrical-players-refactoring) : Theatrical Players Refactoring Kata
-- [21/03/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-10-kotlin-day5-flow) : Coroutines Flow
-- [25/04/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-25-parallel-change-with_tcr) : Parallel changer with TCR
-- [15/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-05-15-RPG-combat) : RPG combat with approval testing
-- [21/05/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-04-30-kotlin-redux) : Redux in Kotlin
-- [27/09/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-09-27-calcul-de-prix-rust) : Calcul de prix en Rust
-- [01/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-01-bowling) : Bowling
-- [22/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-22-potter) : Potter
-- [30/10/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-10-31-calcul-de-prix-rust%232) : Calcul de prix en Rust #2 (suite)
-- [12/11/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-11-12-task-list) : Task list
-- [03/12/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-12-03-calcul-de-prix-rust%233) : Calcul de prix en Rust #3 (suite / traits)
-- [17/12/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-12-17-forth) : Forth
-- [20/12/2024](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2024-12-20-aoc2022%231) : AOC2022 #1 (functional programming)
-- [30/01/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/20245-01-30-aoc2022%232) : AOC2022 #2 (ownership)
-- [04/02/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-02-04-bownling) : Bowling
+## Expectations
+
+Give participants some Rust insight that will give them
+motivations to learn more.
+This is also an experimentation to know if this approach could help people
+to start and learn Rust.
+
+## Instruction
+
+### Part 1
+
+- Create a starfield.
+  - ⚠️  (0,0) is not the screen center.
+  - Stars are darker and smaller in the center of the screen.
+  - Advice refactor to use modules.
+
+### Part  2
+
+- Create a sinus, rainbow scrolling text.
+  - Advice refactor to use a builder pattern.
+
+# Build and run instructions
+## Run Locally (mainly for development purposes)
+
+1. Clone the project
+
+```bash
+  git clone https://github.com/uggla/dojo3
+```
+
+2. Go to the project directory
+
+```bash
+  cd dojo3
+```
+
+### Native
+1. Install Rust following the instructions [here](https://www.rust-lang.org/fr/learn/get-started).
+
+   *Tips: the rustup method is the simplest one.*
+
+2. Install required library for macroquad
+
+* Ubuntu system dependencies
+```bash
+apt install pkg-config libx11-dev libxi-dev libgl1-mesa-dev libasound2-dev
+```
+
+* Fedora system dependencies
+```bash
+dnf install libX11-devel libXi-devel mesa-libGL-devel alsa-lib-devel
+```
+
+* Windows and MacOS system
+```
+No dependencies are required for Windows or MacOS
+```
+
+3. Run
+```bash
+cargo run --release
+```
+
+#### Wasm32 client
+
+1. Follow the above instruction of the native build.
+
+2. Install basic-http-server
+```bash
+cargo install basic-http-server
+```
+
+3. Add the wasm32 compilation target
+```bash
+rustup target add wasm32-unknown-unknown
+```
+
+4. Run
+```bash
+cargo build --target wasm32-unknown-unknown --release
+```
+
+5. Serve the files and open the browser
+```bash
+basic-http-server
+xdg-open http://127.0.0.1:4000
+```
+
