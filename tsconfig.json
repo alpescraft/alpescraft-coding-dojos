@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "types": ["jest", "node"], // Importe les types nécessaires pour Jest et Node.js
+        "skipLibCheck": true // Facultatif : ignore les vérifications des types tiers
+    }
+}
