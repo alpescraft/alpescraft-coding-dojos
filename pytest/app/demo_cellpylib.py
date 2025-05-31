@@ -1,18 +1,129 @@
+from time import sleep
+
 import cellpylib as cpl
 import numpy as np
+import pygame
 
-from app.game_of_life import World
+WHITE = (255, 255, 255)
+GRID_COLOR = (200, 200, 200, 200)
+BLACK = (0, 0, 0)
+COLOR_CELL = {
+    1: (0, 0, 0),
+    2: (255, 255, 0),
+    3: (255, 128, 0),
+    4: (204, 0, 0),
+    5: (153, 0, 76)
+}
+
+SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 1200
+CELL_SIZE = 20
+
+N_CELL_HEIGHT = int(SCREEN_HEIGHT / CELL_SIZE)
+N_CELL_WIDTH = int(SCREEN_WIDTH / CELL_SIZE)
+
+def draw_grid(screen):
+    for x in range(0, N_CELL_WIDTH):
+        for y in range(0, N_CELL_HEIGHT):
+            rect = pygame.Rect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE)
+            pygame.draw.rect(screen, GRID_COLOR, rect, 1)
+
+def draw_cells(cells, screen):
+    for i in range(len(cells)):
+        for j in range(len(cells[i])):
+            if cells[i][j] != 0:
+                pygame.draw.rect(screen, COLOR_CELL[cells[i][j]], [j * CELL_SIZE, i * CELL_SIZE, CELL_SIZE, CELL_SIZE])
+
+def draw_iteration(iteration, screen):
+    my_font = pygame.font.SysFont('Arial', 30)
+    text_surface = my_font.render(str(iteration).encode("utf-8").decode("utf-8"), True, BLACK, WHITE)
+    screen.blit(text_surface, (20, 20))
+
+def demo(world):
+
+    cells = np.pad(world, ((6, 6), (20, 20)))
+    evolved_world = cpl.evolve2d(cells.reshape(1, cells.shape[0], cells.shape[1]), timesteps=150, neighbourhood='Moore',
+                                apply_rule=cpl.game_of_life_rule, memoize='recursive').tolist()
+
+    pygame.init()
+    pygame.font.init()
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+    running = True
+    iteration = 0
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        screen.fill(WHITE)
+        draw_grid(screen)
+
+        sleep(0.2)
+        draw_cells(evolved_world[iteration], screen)
+
+        iteration += 1
+        draw_iteration(iteration, screen)
+
+        pygame.display.update()
+
+    pygame.quit()
 
 
-def evolve_cellpy(world: World) -> World:
-    return cpl.evolve2d(np.array([world]), timesteps=2, neighbourhood='Moore',
-                        apply_rule=cpl.game_of_life_rule, memoize='recursive').tolist()[1]
+class TestDemo:
 
+    def test_random_grid_evolve(self):
+        initial_grid = cpl.init_random2d(60, 60)
 
-if __name__ == '__main__':
-    cellular_automaton = cpl.init_random2d(60, 60)
+        evolved_grid = cpl.evolve2d(initial_grid, timesteps=400, neighbourhood='Moore',
+                                    apply_rule=cpl.game_of_life_rule, memoize='recursive')
 
-    cellular_automaton = cpl.evolve2d(cellular_automaton, timesteps=400, neighbourhood='Moore',
-                                      apply_rule=cpl.game_of_life_rule, memoize='recursive')
+        cpl.plot2d_animate(evolved_grid)
 
-    cpl.plot2d_animate(cellular_automaton)
+    def test_spaceship(self):
+        spaceship = np.array([
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+            [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0],
+            [0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        ])
+        demo(spaceship)
+
+    def test_spaceship2(self):
+        spaceship = np.array([
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 2],
+            [0, 0, 0, 0, 0, 0, 4, 0, 3, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, 3, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 4, 0, 0, 0, 0, 2, 0, 3, 2, 3, 4, 2, 3, 0, 0, 0, 0, 3, 2, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 4, 0, 3, 2, 2, 2, 3, 2, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 2, 0, 2, 3, 2, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 2, 4, 2, 3, 0, 0, 0, 0, 2, 4, 2, 0],
+            [0, 0, 0, 0, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+            [0, 4, 0, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 2, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 2, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 2, 0, 4, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 3, 2, 2, 0, 0, 0, 0, 3, 4, 2, 0],
+            [0, 0, 0, 0, 0, 0, 2, 0, 3, 3, 2, 2, 3, 4, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 3, 0, 2, 2, 4, 0],
+            [0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 3, 4, 2, 2, 4, 3, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 2],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0],
+        ])
+        demo(spaceship)

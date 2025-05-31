@@ -3,7 +3,7 @@ from time import sleep
 import numpy as np
 import pygame
 
-from app import game_of_life, demo_cellpylib
+import game_of_life
 
 WHITE = (255, 255, 255)
 GRID_COLOR = (200, 200, 200, 200)
@@ -50,7 +50,6 @@ if __name__ == '__main__':
     pygame.font.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-    # cells = cpl.init_random2d(N_CELL_WIDTH, N_CELL_HEIGHT).tolist()[0]
     spaceship = np.array([
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1],
