@@ -1,46 +1,15 @@
-# Séance du 01/06/2025
+> Séance du 02/10/2025
 
-# Calcul de prix avec API fluent
+# Cupcake
 
-Implémenter le calcul du prix total sous forme de chaine de caractères à partir des paramètres suivants :
+Sujet : [Cupcake](https://codingdojo.org/kata/cupcake/) sans la variante "décorateur"
 
-- Nombre d'articles
-- Prix unitaire
-- Tax
+# Notes
 
-Prendre en compte des réductions :
+Nous avons cherché à :
 
-- 1000 € : remise de 3%
-- 5000 € : remise de 5%
-
-## Exemples
-
-- HT : 3 articles à 1,21 € + 0 % ⇒ “3.63 €”
-- TTC 5% : 3 articles à 1,21 € + 5 % ⇒ “3.81 €”
-- TTC 20%: 3 articles à 1,21 € +20 % ⇒ “4.36 €”
-- Réductions :
-  - 1000 € → Remise 3% : 5 x 345,00 € + taxe 10% → “1840.58 €”
-  - 5000 € → Remise 5% : 5 x 1299,00 € + taxe 10% → “6787.28 €”
-
-# Objectif 1 : Mettre en place une API fluent
-
-Une "API fluent" est une architecture du code qui permet d'enchainer les appels de méthodes :
-
-```shell
-  un_objet_ou_une_classe
-    .withQuantity(3)
-    .withUnitPrice(1.21)
-    .withTax(5)
-    ...
-```
-
-# Objectif 2 : guider l'utilisateur
-
-Faire en sorte que le développeur utilisateur de ce code n'ait pas de doute et ne
-puisse pas se tromper lors de l'utilisation de cette API :
-
-- Ne pas pouvoir se tromper dans les typages des données
-- Ne pas pouvoir appeler n'importe quel enchainement de méthode
-- Ne pas pouvoir appeler plusieurs fois une méthode si cela n'a pas de sens
-- Pouvoir utiliser certaines méthodes de façon optionnelle (ex : tax)
-- ...
+1. Partir sur un API la plus simple et proche de la spec, donc des méthodes type `Cookie()`
+   et `Chocolate(Cookie())`
+2. Pour l'implémentation, prendre un chemin minimaliste, donc retourner des objets littéraux
+   en nous challengeant par la suite pour explorer le typage tout en conservant des
+   concepts métier comme la notion de `Cake`
