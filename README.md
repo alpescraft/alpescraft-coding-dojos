@@ -72,3 +72,4 @@
   de prix avec API Fluent
 - [02/10/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-10-02-cupcake) : Cupcake et explorations
   typages TypeScript
+- [23/10/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-10-23-parallel-change) : Parallel change
