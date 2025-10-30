@@ -1,15 +1,30 @@
-> Séance du 02/10/2025
+> Séance du 30/10/2025
 
-# Cupcake
+# Roman numerals
 
-Sujet : [Cupcake](https://codingdojo.org/kata/cupcake/) sans la variante "décorateur"
+Convertir dees nombres arabes en nombre romains :
 
-# Notes
+```text
+   1 --> I
+   2 --> II
+   4 --> IV
+   7 --> VII
+  10 --> X
+  50 --> L
+ 100 --> C
+ 500 --> D
+1000 --> M
+```
 
-Nous avons cherché à :
+## Variante
 
-1. Partir sur un API la plus simple et proche de la spec, donc des méthodes type `Cookie()`
-   et `Chocolate(Cookie())`
-2. Pour l'implémentation, prendre un chemin minimaliste, donc retourner des objets littéraux
-   en nous challengeant par la suite pour explorer le typage tout en conservant des
-   concepts métier comme la notion de `Cake`
+Convertir dans l'autre sens.
+
+# Résumé de la séance
+
+Nous nous sommes arrêtés après avoir mis de côté le cas du "4" pour mettre en place
+une `Map` avec les seuils et leurs symboles, et un algorithme générique permettant
+de les exploiter et les cumuler.
+
+Reste à voir le cas du "4" et plus généralement les cas où il faut précédent un symbole
+par un autre pour faire une soustraction.
