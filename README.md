@@ -1,30 +1,32 @@
-> Séance du 30/10/2025
+> Séance du 20/11/2025
 
-# Roman numerals
+![Claude Code](./claude-code-logo.svg)
 
-Convertir dees nombres arabes en nombre romains :
+*Session réalisée avec Claude Code (Anthropic)*
 
-```text
-   1 --> I
-   2 --> II
-   4 --> IV
-   7 --> VII
-  10 --> X
-  50 --> L
- 100 --> C
- 500 --> D
-1000 --> M
-```
+# Kata "Calcul du prix" en Go avec Claude Code
 
-## Variante
+## Objectif
 
-Convertir dans l'autre sens.
+Tester `Claude Code` pour implémenter le kata du
+calcul de prix en langage `Go` qu'aucun des participants
+ne connait.
 
-# Résumé de la séance
+## Sujet du kata
 
-Nous nous sommes arrêtés après avoir mis de côté le cas du "4" pour mettre en place
-une `Map` avec les seuils et leurs symboles, et un algorithme générique permettant
-de les exploiter et les cumuler.
+Le sujet du kata est dans le fichier [SPECS.md](./SPECS.md).
 
-Reste à voir le cas du "4" et plus généralement les cas où il faut précédent un symbole
-par un autre pour faire une soustraction.
+## Utilisation
+
+Le fichier `Makefile` contient toutes les commandes disponibles :
+
+* `make help` pour avoir de l'aide
+* `make run` pour exécuter le code
+* `make test` pour exécuter les tests
+* ...
+
+## Historique IA
+
+Le fichier [HISTORIQUE.md](./HISTORIQUE.md) contient tout
+l'historique des échanges avec `Claude Code` : les prompts
+saisi par les participants, et les réponses de `Claude Code`.

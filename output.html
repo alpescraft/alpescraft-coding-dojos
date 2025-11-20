@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats du calcul de prix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .total {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>Résultats du calcul de prix</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Quantité</th>
+                <th>Prix unitaire</th>
+                <th>Taux de taxe</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr>
+                <td>3</td>
+                <td>1.21 €</td>
+                <td>0%</td>
+                <td class="total">3.63 €</td>
+            </tr>
+            
+            <tr>
+                <td>3</td>
+                <td>1.21 €</td>
+                <td>5%</td>
+                <td class="total">3.81 €</td>
+            </tr>
+            
+            <tr>
+                <td>3</td>
+                <td>1.21 €</td>
+                <td>20%</td>
+                <td class="total">4.36 €</td>
+            </tr>
+            
+            <tr>
+                <td>5</td>
+                <td>345.00 €</td>
+                <td>10%</td>
+                <td class="total">1840.58 €</td>
+            </tr>
+            
+            <tr>
+                <td>5</td>
+                <td>1299.00 €</td>
+                <td>10%</td>
+                <td class="total">6787.28 €</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</body>
+</html>

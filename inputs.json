@@ -1,0 +1,27 @@
+[
+  {
+    "quantity": 3,
+    "unitPrice": 1.21,
+    "taxRate": 0
+  },
+  {
+    "quantity": 3,
+    "unitPrice": 1.21,
+    "taxRate": 5
+  },
+  {
+    "quantity": 3,
+    "unitPrice": 1.21,
+    "taxRate": 20
+  },
+  {
+    "quantity": 5,
+    "unitPrice": 345.00,
+    "taxRate": 10
+  },
+  {
+    "quantity": 5,
+    "unitPrice": 1299.00,
+    "taxRate": 10
+  }
+]
