@@ -1,3 +1,15 @@
-/.idea/
-/node_modules/
-/target
+# Vim
+*~
+*.swp
+
+# Intellij
+.idea
+*.iml
+
+# Eclipse
+.project
+.settings
+.classpath
+
+# Maven
+target/
