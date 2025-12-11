@@ -74,6 +74,7 @@
   typages TypeScript
 - [23/10/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-10-23-parallel-change) : Parallel change
 - [30/10/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-10-30-roman-numerals) : Nombres romains
+- [04/11/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-11-04-movie-rental) : Movie Rental Refacto in Java
 - [20/11/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-11-20-go-with-claude-code) : Kata "Calcul
   du prix" en Go avec Claude Code
 - [02/12/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-12-02-conway) : Suite de Conway
