@@ -77,3 +77,4 @@
 - [20/11/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-11-20-go-with-claude-code) : Kata "Calcul
   du prix" en Go avec Claude Code
 - [02/12/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-12-02-conway) : Suite de Conway
+- [22/01/2026](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2026-01-22-cupcake) : CupCake
