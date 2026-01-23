@@ -1,34 +1,67 @@
-function conway(input: string) {
-  let currentValue = input.at(0)!;
-  let result = "";
-  let count = 0;
-  for (let i = 0; i < input.length; i++) {
-    if (input[i] === currentValue) {
-      count++;
-      continue;
+abstract class Cake {
+  private isWithChocolat = false;
+  private isWithNuts = false;
+
+  protected constructor(private readonly base: string) {}
+
+  get name() {
+    let name = this.base;
+    if (this.isWithChocolat && this.isWithNuts) {
+      name += " with 🍫 and 🥜";
+    } else if (this.isWithChocolat) {
+      name += " with 🍫";
+    } else if (this.isWithNuts) {
+      name += " with 🥜";
     }
-    result += count + currentValue;
-    currentValue = input.at(i)!;
-    count = 1;
+    return name;
   }
-  result += count + currentValue;
-  return result;
+
+  addChocolate() {
+    this.isWithChocolat = true;
+    return this;
+  }
+
+  addNuts() {
+    this.isWithNuts = true;
+    return this;
+  }
 }
 
-describe("Conway", () => {
-  it("test 1", () => {
-    expect(conway("1")).toEqual("11");
-  });
-  it("test 11", () => {
-    expect(conway("11")).toEqual("21");
-  });
-  it("test 21", () => {
-    expect(conway("21")).toEqual("1211");
-  });
-  it("test 1211", () => {
-    expect(conway("1211")).toEqual("111221");
-  });
+class Cookie extends Cake {
+  constructor() {
+    super("🍪");
+  }
+}
 
-  // Cas d'erreur:
-  // test tequilla
+class CupCake extends Cake {
+  constructor() {
+    super("🧁");
+  }
+}
+
+describe("cakes", () => {
+  it("simpleCookie", () => {
+    const cake = new Cookie();
+    expect(cake.name).toEqual("🍪");
+  });
+  it("simpleCupCake", () => {
+    const cake = new CupCake();
+    expect(cake.name).toEqual("🧁");
+  });
+  it("cupcakeWithChocolate", () => {
+    const cake = new CupCake().addChocolate();
+    expect(cake.name).toEqual("🧁 with 🍫");
+  });
+  it("cookieWithChocolate", () => {
+    const cake = new Cookie().addChocolate();
+    expect(cake.name).toEqual("🍪 with 🍫");
+  });
+  it("cookieWithChocolateAndNuts", () => {
+    const cake = new Cookie().addChocolate().addNuts();
+    expect(cake.name).toEqual("🍪 with 🍫 and 🥜");
+  });
+  it("cookieWithNuts", () => {
+    const cake = new Cookie().addNuts();
+    expect(cake.name).toEqual("🍪 with 🥜");
+  });
 });
