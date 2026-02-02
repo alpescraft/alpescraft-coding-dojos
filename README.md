@@ -80,3 +80,4 @@
 - [02/12/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-12-02-conway) : Suite de Conway
 - [11/12/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-12-11-christmas-lights) : Christmas lights
 - [22/01/2026](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2026-01-22-cupcake) : CupCake
+- [02/02/2026](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2026-02-02-code-with-ia) : Code assisté par IA (Claude Code)
