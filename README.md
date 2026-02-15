@@ -81,3 +81,4 @@
 - [11/12/2025](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2025-12-11-christmas-lights) : Christmas lights
 - [22/01/2026](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2026-01-22-cupcake) : CupCake
 - [02/02/2026](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2026-02-02-code-with-ia) : Code assisté par IA (Claude Code)
+- [13/02/2026](https://github.com/alpescraft/alpescraft-coding-dojos/tree/2026-02-13-code-with-ia-refactoring) : Code assisté par IA (Claude Code) : Refactoring Kata Lift Pass Pricing
