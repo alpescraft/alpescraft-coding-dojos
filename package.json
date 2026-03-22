@@ -1,0 +1,16 @@
+{
+  "name": "trivia",
+  "version": "1.0.0",
+  "description": "Trivia kata in typescript",
+  "main": "src/game-runner.ts",
+  "scripts": {
+    "start": "bun run src/game-runner.ts",
+    "test": "bun test"
+  },
+  "author": "Felix Blechschmitt",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {}
+}
